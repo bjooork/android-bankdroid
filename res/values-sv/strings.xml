@@ -56,6 +56,8 @@
 	<string name="update_stop_title">Sluttid uppdatering</string>
 	<string name="update_transaction_history_title">Uppdatera kontoutdrag</string>
 	<string name="update_transaction_history_summary">Uppdatera kontoutdrag vid automatiska uppdateringar</string>
+	<string name="number_of_notifications_title">Antal notifieringar</string>
+	<string name="number_of_notifications_summary">Antal notifieringa som visas samtidigt</string>
 	<string name="appearance_title">Utseende</string>
 	<string name="widgets_title">Widgets</string>
 	<string name="round_widget_balance_title">Avrunda saldo på widgets</string>
@@ -79,6 +81,8 @@
    	<string name="notification_sound_title">Notifieringsljud</string>
 	<string name="notification_sound_summary">Välj ett notifieringsljud</string>
 	<string name="notification_sound_name">Välj ljud</string>
+	<string name="notify_delta_only_title">Visa endast ändring</string>
+	<string name="notify_delta_only_summary">Visa inte kontosaldo i notifiering</string>
 	<string name="account_types_title">Kontotyper</string>
 	<string name="account_types_summary">Visa endast notifieringar för valda kontotyper</string>
 	<string name="remote_notifier_title">Remote Notifier-integrering</string>

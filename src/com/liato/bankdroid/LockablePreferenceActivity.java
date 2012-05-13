@@ -23,8 +23,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class LockablePreferenceActivity extends PreferenceActivity {
     private static int PATTERNLOCK_UNLOCK = 42;
@@ -45,7 +49,7 @@ public class LockablePreferenceActivity extends PreferenceActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		// Don't do anything if not lock pattern is set
+		// Don't do anything if no lock pattern is set
 		if (!mLockPatternUtils.isLockPatternEnabled()) return;
         /*
         Save the current time If a lock pattern has been set
@@ -61,7 +65,7 @@ public class LockablePreferenceActivity extends PreferenceActivity {
         if (mHasLoaded) {
             writeLockTime();
         } else {
-            writeLockTime(System.currentTimeMillis()-10000);
+            writeLockTime(SystemClock.elapsedRealtime()-10000);
         }
     }
 
@@ -75,9 +79,9 @@ public class LockablePreferenceActivity extends PreferenceActivity {
 		// If a lock pattern is set we need to check the time for when the last
 		// activity was open. If it's been more than two seconds the user
 		// will have to enter the lock pattern to continue.
-		long currentTime = System.currentTimeMillis();
+		long currentTime = SystemClock.elapsedRealtime();
 		long lockedAt = mPrefs.getLong("locked_at", currentTime-10000);
-		long timedif = currentTime - lockedAt;
+		long timedif = Math.abs(currentTime - lockedAt);
 		if (timedif > 2000) {
 		    launchPatternLock();
 		}
@@ -94,7 +98,7 @@ public class LockablePreferenceActivity extends PreferenceActivity {
 	}
 	
     private void writeLockTime() {
-        writeLockTime(System.currentTimeMillis());
+        writeLockTime(SystemClock.elapsedRealtime());
     }
 
     private void writeLockTime(long time) {
@@ -112,6 +116,7 @@ public class LockablePreferenceActivity extends PreferenceActivity {
     protected boolean isLockEnabled() {
         return mPrefs.getBoolean("lock_enabled", true);       
     }	
+    
     protected void onActivityResult(int requestCode, int resultCode,
             Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -130,4 +135,5 @@ public class LockablePreferenceActivity extends PreferenceActivity {
         super.onStop();
         setLockEnabled(true);
     }   	
+    
 }

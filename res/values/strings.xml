@@ -58,6 +58,8 @@
 	<string name="update_stop_title">Update end time</string>
 	<string name="update_transaction_history_title">Update transaction history</string>
 	<string name="update_transaction_history_summary">Update transaction history when updating automatically</string>
+	<string name="number_of_notifications_title">Number of notifications</string>
+	<string name="number_of_notifications_summary">Number of notifications to display simultaneously</string>
 	<string name="appearance_title">Appearance</string>
 	<string name="widgets_title">Widgets</string>
 	<string name="round_widget_balance_title">Round widget balance</string>
@@ -81,6 +83,8 @@
    	<string name="notification_sound_title">Notification sound</string>
 	<string name="notification_sound_summary">Select notification sound</string>
 	<string name="notification_sound_name">Select sound</string>
+	<string name="notify_delta_only_title">Display change only</string>
+	<string name="notify_delta_only_summary">Don\'t display the account balance in the notification</string>
 	<string name="account_types_title">Account types</string>
 	<string name="account_types_summary">Only show notifications for selected account types</string>
 	<string name="remote_notifier_title">Remote Notifier Integration</string>
